@@ -3,7 +3,7 @@ extends Node
 @onready var menu = $CanvasLayer/Menu
 const Player = preload("res://scenes/player.tscn")
 @onready var hud = $CanvasLayer/HUD
-@onready var health_bar = $CanvasLayer/HUD/HealthBar
+@onready var health = $CanvasLayer/Control/Health
 
 func _unhandled_input(event):
 	if Input.is_action_just_pressed("escape"):
@@ -23,7 +23,6 @@ func _ready():
 func _on_host_pressed():
 	var peer = ENetMultiplayerPeer.new()
 	menu.hide()
-	hud.show()
 	peer.create_server(8080)
 	multiplayer.multiplayer_peer = peer
 	multiplayer.peer_connected.connect(_on_peer_connected)
@@ -32,10 +31,8 @@ func _on_host_pressed():
 
 func _on_join_pressed():
 	print("Connecting to server")
-	menu.hide()
-	hud.show()
 	var peer = ENetMultiplayerPeer.new()
-	peer.create_client("52.138.195.100", 8080)
+	peer.create_client("localhost", 8080)
 	multiplayer.multiplayer_peer = peer
 
 func _on_peer_connected(id):
@@ -60,7 +57,7 @@ func addplayer(peer_id):
 		player.health_changed.connect(update_health_bar)
 	
 func update_health_bar(value):
-	health_bar.value = value
+	health.value = value
 
 
 func _on_multiplayer_spawner_spawned(node):

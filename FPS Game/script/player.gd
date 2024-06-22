@@ -9,8 +9,8 @@ signal health_changed(value)
 
 var health = 3
 
-const SPEED = 10.0
-const JUMP_VELOCITY = 10
+const SPEED = 7
+const JUMP_VELOCITY = 8
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 20
