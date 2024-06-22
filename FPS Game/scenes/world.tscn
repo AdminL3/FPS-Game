@@ -38,6 +38,7 @@ environment = SubResource("Environment_w435h")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Menu" type="PanelContainer" parent="CanvasLayer"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

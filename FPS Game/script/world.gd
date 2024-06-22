@@ -11,11 +11,16 @@ func _unhandled_input(event):
 
 
 
+func _ready():
+	if OS.has_feature("dedicated_server"):
+		print("Starting dedicated server...")
+		_on_host_pressed()
+	else:
+		_on_join_pressed()
 
 
 
 func _on_host_pressed():
-	print("Creating server")
 	var peer = ENetMultiplayerPeer.new()
 	menu.hide()
 	hud.show()
@@ -23,7 +28,6 @@ func _on_host_pressed():
 	multiplayer.multiplayer_peer = peer
 	multiplayer.peer_connected.connect(_on_peer_connected)
 	multiplayer.peer_disconnected.connect(_on_peer_disconnected)
-	addplayer(multiplayer.get_unique_id())
 
 
 func _on_join_pressed():
@@ -31,7 +35,7 @@ func _on_join_pressed():
 	menu.hide()
 	hud.show()
 	var peer = ENetMultiplayerPeer.new()
-	peer.create_client("localhost", 8080)
+	peer.create_client("52.138.195.100", 8080)
 	multiplayer.multiplayer_peer = peer
 
 func _on_peer_connected(id):

@@ -1,0 +1,23 @@
+scp -i C:\Users\L-Blu\Levi\Programmieren\Godot\FPS-Game\export\key.pem -r C:\Users\L-Blu\Levi\Programmieren\Godot\FPS-Game\export\linux\ levi@52.138.195.100:~/.
+
+
+ssh -i C:\Users\L-Blu\Levi\Programmieren\Godot\FPS-Game\export\key.pem levi@52.138.195.100
+
+
+chmod +x ./linux/*
+
+rm -rf linux
+
+
+
+./linux/linux.sh
+
+
+C:\Users\L-Blu\Levi\OneDriveLive\OneDrive\Dokumente\Downloads\Game\export\linux\server
+
+C:\Users\L-Blu\Levi\OneDriveLive\OneDrive\Dokumente\Downloads\Game\export\linux\key.pem
+
+tutorial:
+https://www.youtube.com/watch?v=jgJuX04cq7k&t=266s&ab_channel=BatteryAcidDev
+
+am montag 5.7 endet es
