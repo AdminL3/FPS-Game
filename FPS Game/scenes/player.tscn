@@ -1,9 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://0hf7ys7fgixc"]
+[gd_scene load_steps=15 format=3 uid="uid://0hf7ys7fgixc"]
 
 [ext_resource type="Script" path="res://script/player.gd" id="1_5qd2w"]
 [ext_resource type="PackedScene" uid="uid://bsdnn20571bie" path="res://model/Pistol.blend" id="2_cws0r"]
 [ext_resource type="Texture2D" uid="uid://ce14obfge8k54" path="res://addons/kenney_particle_pack/star_06.png" id="3_cu338"]
-[ext_resource type="PackedScene" uid="uid://b4gofxb5vxjf5" path="res://model/Jonah.glb" id="4_jlq4i"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_t7j82"]
 
@@ -153,7 +152,6 @@ script = ExtResource("1_5qd2w")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-visible = false
 mesh = SubResource("CapsuleMesh_t7j82")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -161,7 +159,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_srdji")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.74746, -0.320013)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49408, 0)
 
 [node name="Pistol" parent="Camera3D" instance=ExtResource("2_cws0r")]
 transform = Transform3D(1, 0, 0, 0, 0.988065, 0.154038, 0, -0.154038, 0.988065, 0.542325, -0.36117, -0.610475)
@@ -188,8 +186,5 @@ playback_default_blend_time = 0.5
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_rop14")
-
-[node name="Jonah" parent="." instance=ExtResource("4_jlq4i")]
-transform = Transform3D(0.235, 0, 0, 0, 0.235, 0, 0, 0, 0.235, 0, 0, 0)
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

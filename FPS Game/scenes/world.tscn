@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dwmgc45i5gqfb"]
+[gd_scene load_steps=8 format=3 uid="uid://dwmgc45i5gqfb"]
 
 [ext_resource type="Script" path="res://script/world.gd" id="1_hkj0x"]
+[ext_resource type="PackedScene" uid="uid://217hyhgwoqyn" path="res://scenes/environment.tscn" id="2_qrcay"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_a14mh"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -30,6 +31,8 @@ shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_w435h")
+
+[node name="Environment" parent="." instance=ExtResource("2_qrcay")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 scale = Vector2(1.995, 1.995)
